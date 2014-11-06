@@ -21,4 +21,10 @@
         <constructor-arg value="offerTopic"/>
     </bean>
 
+    <bean id="offerService" class="pl.edu.amu.dji.jms.lab2.wholesaler.service.OfferService">
+        <property name="jmsTemplate" ref="jmsTemplate"></property>
+        <property name="offerTopic" ref="offerTopic"></property>
+        <property name="orderQueue" ref="orderQueue"></property>
+    </bean>
+
 </beans>
