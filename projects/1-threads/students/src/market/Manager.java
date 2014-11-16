@@ -14,4 +14,6 @@ public class Manager {
     private string itemName = UUID.randomUUID();
 
     private Chairman chairman = new Chairman();
+
+
 }

@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Chairman {
+public class Chairman extends Thread{
     private final BlockingQueue<market.Item> registeredItems = new ArrayBlockingQueue<Item>(10);
 
     private final BlockingQueue<Recipient> recipients = new ArrayBlockingQueue<Recipient>(10);
@@ -40,9 +40,10 @@ public class Chairman {
                 return r;
                 break;
             default:
-                Random r = new Random();
-                Recipient[] f = recipients.toArray();
-                Recipient re = f[r.nextInt(size)];
+                Random rp = new Random();
+                Recipient[] f = new Recipient[10];
+                recipients.toArray(f);
+                Recipient re = f[rp.nextInt(size)];
                 re.recieveItem(getRegisteredItem());
                 return re;
         }
